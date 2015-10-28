@@ -2,6 +2,12 @@
 
 Simple non-api share links for Facebook &amp; Twitter.
 
+## Installation
+
+```bash
+bower install --save gwa-share-links
+```
+
 ## Usage
 
 ```markup
