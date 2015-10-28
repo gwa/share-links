@@ -14,12 +14,21 @@
 		return jq.attr('data-content') ? jq.attr('data-content') : '';
 	}
 
+	function doOpen(url, name, opts) {
+		if (instance.opener) {
+			instance.opener(url, name, opts);
+			return;
+		}
+		window.open(url, name, opts);
+	}
+
 	var instance = {
 		initFacebook: function(jq) {
 			jq.on('click', function(ev) {
 				var permalink = $(this).attr('href');
 				ev.preventDefault();
-				instance.opener('https://www.facebook.com/sharer.php?u=' + permalink, 'facebook', 'toolbar=no,width=700,height=400');
+
+				doOpen('https://www.facebook.com/sharer.php?u=' + permalink, 'facebook', 'toolbar=no,width=700,height=400');
 			});
 		},
 
@@ -30,11 +39,11 @@
 				fullcontent = content ? encodeURIComponent(content + ' ' + permalink) : permalink;
 
 				ev.preventDefault();
-				instance.opener('https://www.twitter.com/home?status=' + fullcontent, 'twitter', 'toolbar=no,width=700,height=400');
+				doOpen('https://www.twitter.com/home?status=' + fullcontent, 'twitter', 'toolbar=no,width=700,height=400');
 			});
 		},
 
-		opener: window.open
+		opener: null
 	};
 
 	return instance;
