@@ -4,6 +4,7 @@
     "type": "git",
     "url": "https://github.com/gwa/Share-Links"
   },
+  "license" : "MIT",
   "scripts": {
     "test": "grunt test"
   },
