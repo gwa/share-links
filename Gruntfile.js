@@ -65,10 +65,16 @@ module.exports = function(grunt) {
 	grunt.registerTask(
 		'default',
 		[
-			'jshint:src',
-			'jasmine',
+			'test',
 			'copy',
 			'uglify'
+		]
+	);
+	grunt.registerTask(
+		'test',
+		[
+			'jshint:src',
+			'jasmine'
 		]
 	);
 
