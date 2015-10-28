@@ -1,0 +1,15 @@
+{
+  "name": "Gwa-Share-Links",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gwa/Share-Links"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-copy": "^0.8.2",
+    "grunt-contrib-jasmine": "^0.6.3",
+    "grunt-contrib-jshint": "^0.11.0",
+    "grunt-contrib-uglify": "^0.10.0",
+    "grunt-template-jasmine-requirejs": "^0.2.0"
+  }
+}
