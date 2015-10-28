@@ -6,7 +6,6 @@
     "url": "https://github.com/gwa/Share-Links.git"
   },
   "license": "MIT",
-  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
