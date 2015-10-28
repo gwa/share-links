@@ -2,6 +2,8 @@
 
 Simple non-api share links for Facebook &amp; Twitter.
 
+[![Build Status](https://travis-ci.org/gwa/Share-Links.svg?branch=master)](https://travis-ci.org/gwa/Share-Links)
+
 ## Installation
 
 ```bash
