@@ -43,6 +43,17 @@
 			});
 		},
 
+		initWhatsapp: function(jq) {
+			jq.on('click', function(ev) {
+				var permalink = $(this).attr('href');
+
+				ev.preventDefault();
+				$(this).attr('href', 'whatsapp://send?text=' + permalink).attr('data-action', 'share/whatsapp/share');
+
+				instance.opener($(this).prop('outerHTML'), 'whatsapp');
+			});
+		},
+
 		opener: null
 	};
 
