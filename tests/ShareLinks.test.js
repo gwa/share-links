@@ -33,21 +33,33 @@ define(['jquery', 'Gwa.ShareLinks'], function($, ShareLinks) {
 
 			ShareLinks.initTwitter(jq);
 			jq.trigger('click');
-			expect(result).toBe('https://www.twitter.com/home?status=%23foo%20%40bar%20http%3A%2F%2Fwww.example.com%2F');
+			expect(result).toBe('https://twitter.com/intent/tweet?text=%23foo%20%40bar%20http%3A%2F%2Fwww.example.com%2F');
 		});
 
 		it("can init a Whatsapp link", function() {
 			var result,
 				jq = $('<a href="https://www.whatsapp.com/" class="wa-share">Share on Whatsapp</a>');
 
+			ShareLinks.initWhatsapp(jq);
+
+			expect(jq.attr('href')).toBe('whatsapp://send?text=https://www.whatsapp.com/');
+			expect(jq.attr('data-action')).toBe('share/whatsapp/share');
+		});
+
+		it("can init a Weibo link", function() {
+			var result,
+				jq = $('<a href="https://www.weibo.com/" data-content="My title" class="wb-share">Share on Weibo</a>');
+
 			ShareLinks.opener = function(url) {
 				result = url;
 			};
 
-			ShareLinks.initWhatsapp(jq);
+			$('html').attr('lang', 'zh_cn');
+
+			ShareLinks.initWeibo(jq);
 			jq.trigger('click');
 
-			expect(result).toBe('<a href="whatsapp://send?text=https://www.whatsapp.com/" class="wa-share" data-action="share/whatsapp/share">Share on Whatsapp</a>')
+			expect(result).toBe('http://service.weibo.com/share/share.php?url=https://www.weibo.com/&appkey=&title=My%20title&pic=&ralateUid=&language=zh_cn');
 		});
 
 	});

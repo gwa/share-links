@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script
+      src="https://code.jquery.com/jquery-2.2.4.min.js"
+      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+      crossorigin="anonymous"></script>
+    <script src="../src/ShareLinks.js"></script>
+  </head>
+  <body>
+    <ul>
+      <li><a href="http://www.example.com" class="share-facebook">Share on Facebook</a></li>
+      <li><a href="http://www.example.com" class="share-twitter" data-content="Check out this #example link">Share on Twitter</a></li>
+      <li><a href="http://www.example.com" class="share-whatsapp">Share on WhatsApp</a></li>
+      <li><a href="http://www.example.com" class="share-weibo" data-content="Check out this example link">Share on Weibo</a></li>
+    </ul>
+    <script>
+      var links = gwa.ShareLinks;
+      links.initFacebook($('a.share-facebook'));
+      links.initTwitter($('a.share-twitter'));
+      links.initWhatsapp($('a.share-whatsapp'));
+      links.initWeibo($('a.share-weibo'));
+    </script>
+  </body>
+</html>

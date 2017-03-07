@@ -16,6 +16,7 @@ bower install --save gwa-share-links
 <a href="http://linkto.share.com/" class="fb-share">Share on Facebook</a>
 <a href="http://linkto.share.com/" data-content="#hashtag content" class="tw-share">Share on Twitter</a>
 <a href="http://linkto.share.com/" class="wa-share">Share on Whatsapp</a>
+<a href="http://linkto.share.com/" class="wb-share">Share on Weibo</a>
 ```
 
 ```js
