@@ -17,23 +17,6 @@
 	 * @return {String}
 	 */
 	function getTitle(jq) {
-		// If data-content is set, use that.
-		var cd = getTitle(jq);
-		if (cd) {
-			return cd;
-		}
-
-		// If using a custom URL, we don't know the title.
-		if (hasHref(jq)) {
-			return '';
-		}
-	}
-
-	/**
-	 * @param {jQuery} jq
-	 * @return {String}
-	 */
-	function getTitle(jq) {
 		var title;
 
 		if (jq.attr('data-content')) {
