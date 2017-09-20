@@ -9,6 +9,7 @@ Currently requires jQuery.
 ## Installation
 
 ```bash
+npm install --save gwa-share-links
 bower install --save gwa-share-links
 ```
 
