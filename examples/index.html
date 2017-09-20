@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
+    <title>Sharer test</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="og:title" content="The og title">
     <script
-      src="https://code.jquery.com/jquery-2.2.4.min.js"
-      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-      crossorigin="anonymous"></script>
+    src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script>
     <script src="../src/ShareLinks.js"></script>
   </head>
   <body>
     <ul>
-      <li><a href="http://www.example.com" class="share-facebook">Share on Facebook</a></li>
-      <li><a href="http://www.example.com" class="share-twitter" data-content="Check out this #example link">Share on Twitter</a></li>
-      <li><a href="http://www.example.com" class="share-whatsapp">Share on WhatsApp</a></li>
-      <li><a href="http://www.example.com" class="share-weibo" data-content="Check out this example link">Share on Weibo</a></li>
+      <li><a href="http://www.apple.com" class="share-facebook">Share on Facebook</a></li>
+      <li><a href="http://www.apple.com" class="share-twitter" data-content="Check out this #example link">Share on Twitter</a></li>
+      <li><a href="#" class="share-twitter">Share on Twitter (using page location)</a></li>
+      <li><a href="http://www.apple.com" class="share-whatsapp">Share on WhatsApp</a></li>
+      <li><a href="http://www.apple.com" class="share-weibo" data-content="Check out this example link">Share on Weibo</a></li>
+      <li><a href="http://www.apple.com" class="share-xing">Share on Xing</a></li>
+      <li><a href="http://www.apple.com" class="share-linkedin" data-content="Check out the apple page">Share on Linkedin</a></li>
+      <li><a href="#" class="share-mail" data-type="mail">Mail this page</a></li>
+      <li><a href="#" class="share-print">Print this page</a></li>
     </ul>
     <script>
       var links = gwa.ShareLinks;
@@ -22,6 +29,14 @@
       links.initTwitter($('a.share-twitter'));
       links.initWhatsapp($('a.share-whatsapp'));
       links.initWeibo($('a.share-weibo'));
+      links.initXing($('a.share-xing'));
+      links.initLinkedin($('a.share-linkedin'));
+
+      // Use data-type. Can init multiple (even though only one link here).
+      links.initMultiple($('a.share-mail'));
+
+      // Pass type as argument.
+      links.init($('a.share-print'), 'print');
     </script>
   </body>
 </html>

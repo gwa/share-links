@@ -62,6 +62,95 @@
 			expect(result).toBe('http://service.weibo.com/share/share.php?url=https://www.weibo.com/&appkey=&title=My%20title&pic=&ralateUid=&language=zh_cn');
 		});
 
+		it("can init a Xing link", function() {
+			var result,
+				jq = $('<a href="#" class="xi-share">Share on Xing</a>');
+
+			ShareLinks.opener = function(url) {
+				result = url;
+			};
+
+			ShareLinks.window = {
+				location: {
+					href: 'http://www.example.com'
+				}
+			};
+
+			ShareLinks.initXing(jq);
+			jq.trigger('click');
+
+			expect(result).toBe('https://www.xing.com/spi/shares/new?url=http://www.example.com');
+		});
+
+		it("can init a Linkedin link", function() {
+			var result,
+				jq = $('<a href="#" class="li-share">Share on LinkedIn</a>');
+
+			ShareLinks.opener = function(url) {
+				result = url;
+			};
+
+			ShareLinks.window = {
+				location: {
+					href: 'http://www.example2.com'
+				}
+			};
+
+			ShareLinks.initLinkedin(jq);
+			jq.trigger('click');
+
+			expect(result).toBe('https://www.linkedin.com/shareArticle?mini=true&url=http://www.example2.com');
+		});
+
+		it("can init a Mail link", function() {
+			var jq = $('<a href="#" class="li-mail">Mail</a>');
+
+			// Add og tag
+			$('head').append('<meta name="og:title" content="My og title">');
+
+			ShareLinks.window = {
+				location: {
+					href: 'http://www.example2.com'
+				}
+			};
+
+			ShareLinks.initMail(jq);
+
+			expect(jq.attr('href')).toBe('mailto:?subject=My%20og%20title&body=http%3A%2F%2Fwww.example2.com');
+		});
+
+		it("can init a Print link", function() {
+			var result,
+				jq = $('<a href="#" class="li-print">Print</a>');
+
+			ShareLinks.window = {
+				print: function() {
+					result = true;
+				}
+			};
+
+			ShareLinks.initPrint(jq);
+			jq.trigger('click');
+
+			expect(result).toBe(true);
+		});
+
+		it("can init a using the data-type attribute", function() {
+			var result,
+				jq = $('<a href="#" data-type="print">Print</a>');
+
+			ShareLinks.window = {
+				print: function() {
+					result = true;
+				}
+			};
+
+			ShareLinks.init(jq);
+			jq.trigger('click');
+
+			expect(result).toBe(true);
+		});
+
 	});
 
 })(jQuery, gwa.ShareLinks);
