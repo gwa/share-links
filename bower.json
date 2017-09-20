@@ -18,8 +18,7 @@
     "src"
   ],
   "devDependencies": {
-    "gwa-codestyle": "gwa/codestyle#~1.0",
-    "requirejs": "~2.1.20"
+    "gwa-codestyle": "gwa/codestyle#~1.0"
   },
   "dependencies": {
     "jquery": ">1.11.0"

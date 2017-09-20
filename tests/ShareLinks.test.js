@@ -1,4 +1,4 @@
-define(['jquery', 'Gwa.ShareLinks'], function($, ShareLinks) {
+(function($, ShareLinks) {
 
 	describe("ShareLinks", function() {
 
@@ -64,4 +64,4 @@ define(['jquery', 'Gwa.ShareLinks'], function($, ShareLinks) {
 
 	});
 
-});
+})(jQuery, gwa.ShareLinks);

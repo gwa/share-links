@@ -1,8 +1,9 @@
 {
-  "name": "Gwa-Share-Links",
+  "name": "gwa-share-links",
+  "version": "1.3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gwa/Share-Links"
+    "url": "https://github.com/gwa/share-links"
   },
   "license" : "MIT",
   "scripts": {
@@ -11,7 +12,7 @@
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-copy": "^0.8.2",
-    "grunt-contrib-jasmine": "^0.6.3",
+    "grunt-contrib-jasmine": "^1.0.3",
     "grunt-contrib-jshint": "^0.11.0",
     "grunt-contrib-uglify": "^0.10.0",
     "grunt-template-jasmine-requirejs": "^0.2.0"

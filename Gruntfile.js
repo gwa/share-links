@@ -17,24 +17,15 @@ module.exports = function(grunt) {
 		},
 
 		jasmine: {
-			require: {
+			default: {
+				src: 'src/ShareLinks.js',
 				options: {
 					vendor: [
-						// 'bower_components/requirejs/require.js'
+						'bower_components/jquery/dist/jquery.js'
 					],
 					specs: [
 						'tests/ShareLinks.test.js'
-					],
-					template: require('grunt-template-jasmine-requirejs'),
-					templateOptions: {
-						requireConfig: {
-							baseUrl: './',
-							paths: {
-								'jquery' : 'bower_components/jquery/dist/jquery',
-								'Gwa.ShareLinks' : 'src/ShareLinks'
-							}
-						}
-					}
+					]
 				}
 			}
 		},
